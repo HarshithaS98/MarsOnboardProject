@@ -19,9 +19,4 @@
     <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="4.0.16-beta" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\" />
-    <Folder Include="Stepdefinition\" />
-  </ItemGroup>
-
 </Project>

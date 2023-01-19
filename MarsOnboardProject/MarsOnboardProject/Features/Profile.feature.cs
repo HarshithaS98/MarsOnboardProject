@@ -20,22 +20,22 @@ namespace MarsOnboardProject.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "4.0.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Feature1")]
-    public partial class Feature1Feature
+    [NUnit.Framework.DescriptionAttribute("ProfileFeature")]
+    public partial class ProfileFeatureFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = ((string[])(null));
         
-#line 1 "Feature1.feature"
+#line 1 "Profile.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual async System.Threading.Tasks.Task FeatureSetupAsync()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunnerForAssembly(null, NUnit.Framework.TestContext.CurrentContext.WorkerId);
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Feature1", "As a Seller , I would like to create my Profile information\r\nso that people seeki" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "ProfileFeature", "As a Seller , I would like to create my Profile information\r\nso that people seeki" +
                     "ng for some skills can look into my profile", ProgrammingLanguage.CSharp, featureTags);
             await testRunner.OnFeatureStartAsync(featureInfo);
         }
@@ -79,20 +79,23 @@ namespace MarsOnboardProject.Features
 #line 8
 #line hidden
 #line 9
-await testRunner.GivenAsync("I logged into Mars Portal successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+await testRunner.GivenAsync("I logged into Mars page successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 10
- await testRunner.WhenAsync("I navigate to profile page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+await testRunner.WhenAsync("I navigated to profile pages", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Seller is able to create language details")]
-        public async System.Threading.Tasks.Task SellerIsAbleToCreateLanguageDetails()
+        [NUnit.Framework.DescriptionAttribute("User Create languages using valid data")]
+        [NUnit.Framework.TestCaseAttribute("English", "Fluent", null)]
+        public async System.Threading.Tasks.Task UserCreateLanguagesUsingValidData(string language, string level, string[] exampleTags)
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Seller is able to create language details", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            argumentsOfScenario.Add("language", language);
+            argumentsOfScenario.Add("level", level);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User Create languages using valid data", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 12
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -107,7 +110,268 @@ await testRunner.GivenAsync("I logged into Mars Portal successfully", ((string)(
 this.FeatureBackgroundAsync();
 #line hidden
 #line 13
- await testRunner.WhenAsync("I created <", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+await testRunner.GivenAsync(string.Format("Added \'{0}\' and \'{1}\' to the languages", language, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 14
+await testRunner.ThenAsync(string.Format("the \'{0}\' and \'{1}\' created  successfully", language, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("User edited existing language with valid details")]
+        [NUnit.Framework.TestCaseAttribute("Hindi", "Conversational", null)]
+        public async System.Threading.Tasks.Task UserEditedExistingLanguageWithValidDetails(string language, string level, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("language", language);
+            argumentsOfScenario.Add("level", level);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User edited existing language with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 21
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 8
+this.FeatureBackgroundAsync();
+#line hidden
+#line 22
+await testRunner.GivenAsync(string.Format("edited \'{0}\' and \'{1}\' to the languages", language, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 23
+await testRunner.ThenAsync(string.Format("the \'{0}\' and \'{1}\'  edited successfully", language, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("User able to delete edited languages with valid details")]
+        public async System.Threading.Tasks.Task UserAbleToDeleteEditedLanguagesWithValidDetails()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User able to delete edited languages with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 29
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 8
+this.FeatureBackgroundAsync();
+#line hidden
+#line 30
+await testRunner.GivenAsync("Deleted \'<language>\' and \'<level>\' in the language", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 31
+await testRunner.ThenAsync("the \'<language>\' and \'<level>\'  deleted successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("User create skills using skills tab")]
+        [NUnit.Framework.TestCaseAttribute("Selenium using Java", "Beginner", null)]
+        public async System.Threading.Tasks.Task UserCreateSkillsUsingSkillsTab(string skill, string skillLevel, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("skill", skill);
+            argumentsOfScenario.Add("skillLevel", skillLevel);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User create skills using skills tab", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 37
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 8
+this.FeatureBackgroundAsync();
+#line hidden
+#line 38
+await testRunner.GivenAsync(string.Format("When Added \'{0}\' and \'<skilllevel>\' to the skills", skill), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 39
+await testRunner.ThenAsync(string.Format("\'{0}\' and \'<skilllevel>\'  created successfully", skill), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("User edited existing skill with valid details")]
+        [NUnit.Framework.TestCaseAttribute("Selenium using C#", "Intermediate", null)]
+        public async System.Threading.Tasks.Task UserEditedExistingSkillWithValidDetails(string language, string level, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("Language", language);
+            argumentsOfScenario.Add("Level", level);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User edited existing skill with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 46
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 8
+this.FeatureBackgroundAsync();
+#line hidden
+#line 47
+await testRunner.GivenAsync("edited \'<skill>\' and \'<skilllevel>\' to the skills", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 48
+await testRunner.ThenAsync("\'<skill>\' and \'<skilllevel>\'  edited successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("User able to delete edited skill with valid details")]
+        public async System.Threading.Tasks.Task UserAbleToDeleteEditedSkillWithValidDetails()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User able to delete edited skill with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 54
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 8
+this.FeatureBackgroundAsync();
+#line hidden
+#line 55
+await testRunner.GivenAsync("Deleted \'<skill>\' and \'<skilllevel>\' in the skills", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 56
+await testRunner.ThenAsync("\'<skill>\' and \'<skilllevel>\'  deleted successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("User create certifications using certification tab")]
+        [NUnit.Framework.TestCaseAttribute("Manual Tester", "Times Institue", "2015", null)]
+        public async System.Threading.Tasks.Task UserCreateCertificationsUsingCertificationTab(string certificate, string from, string year, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("certificate", certificate);
+            argumentsOfScenario.Add("From", from);
+            argumentsOfScenario.Add("Year", year);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User create certifications using certification tab", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 62
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 8
+this.FeatureBackgroundAsync();
+#line hidden
+#line 63
+await testRunner.GivenAsync(string.Format("When Added \'{0}\' and \'{1}\' and \'{2}\'  to the Certifications", certificate, year, from), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 64
+await testRunner.ThenAsync(string.Format("t \'{0}\' and \'{1}\' and \'{2}\'  created successfully", certificate, year, from), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("User edited existing certificate details with valid details")]
+        [NUnit.Framework.TestCaseAttribute("Test Analyst", "Industry Connect", "2023", null)]
+        public async System.Threading.Tasks.Task UserEditedExistingCertificateDetailsWithValidDetails(string certificate, string from, string year, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("certificate", certificate);
+            argumentsOfScenario.Add("From", from);
+            argumentsOfScenario.Add("Year", year);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User edited existing certificate details with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 71
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 8
+this.FeatureBackgroundAsync();
+#line hidden
+#line 72
+await testRunner.GivenAsync(string.Format("edited \'{0}\' and \'{1}\' and \'{2}\'  to the Certifications", certificate, year, from), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 73
+await testRunner.ThenAsync(string.Format("the \'{0}\' and \'{1}\' and \'{2}\'  to the Certifications edited successfully", certificate, year, from), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            await this.ScenarioCleanupAsync();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("User able to delete edited certificate details  with valid details")]
+        public async System.Threading.Tasks.Task UserAbleToDeleteEditedCertificateDetailsWithValidDetails()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User able to delete edited certificate details  with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 78
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                await this.ScenarioStartAsync();
+#line 8
+this.FeatureBackgroundAsync();
+#line hidden
+#line 79
+await testRunner.GivenAsync("Deleted \'<certificate>\', \'<Year>\' , \'<From>\'  to the Certifications", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 80
+await testRunner.ThenAsync("the \'<certificate>\' , \'<Year>\' , \'<From>\'  to the Certifications  deleted success" +
+                        "fully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
